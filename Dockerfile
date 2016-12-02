@@ -19,12 +19,16 @@ WORKDIR /root/python-workspace
 RUN yum -y update
 
 # Download and build python 3.5.x
+ENV LC_ALL C
 COPY ./python_build_all.sh .
 RUN  ./python_build_all.sh
 
 # Add python shared libs to the path.
 COPY python3-x86_64.conf /etc/ld.so.conf.d/
 RUN ldconfig -v
+
+# Upgrade pip.
+/usr/local/bin/pip3 install --upgrade pip
 
 RUN yum -y clean all
 
