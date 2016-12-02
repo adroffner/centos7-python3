@@ -5,7 +5,7 @@
 # Build docker image
 # =============================================================================
 
-IMAGE_NAME="centos7-python3"
+IMAGE_NAME="att-gcs/centos7-python3:3.5.2"
 
 docker build -t $IMAGE_NAME ./ \
     --build-arg http_proxy=$http_proxy \
