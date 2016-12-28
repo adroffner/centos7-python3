@@ -13,13 +13,16 @@ ENV https_proxy="http://one.proxy.att.com:8080"
 ENV HTTP_PROXY="http://one.proxy.att.com:8080"
 ENV HTTPS_PROXY="http://one.proxy.att.com:8080"
 
-WORKDIR /root/python-workspace
-
 # Update CentOS 7 per Docker advice.
 RUN yum -y update
 
-# Download and build python 3.5.x
+WORKDIR /root/python-workspace
+
+# Set Locale to US English.
+RUN localedef  -c -i en_US -f UTF-8 en_US.UTF-8 || /bin/true
 ENV LC_ALL "en_US.UTF-8"
+
+# Download and build python 3.5.x
 COPY ./python_build_all.sh .
 RUN  ./python_build_all.sh
 
@@ -32,6 +35,9 @@ RUN /usr/local/bin/pip3 install --upgrade pip
 
 RUN yum -y clean all
 
-# Do we even need to start an "application container"?
-ENTRYPOINT ["/usr/local/bin/python3"]
+# Unprivileged User: "docker" runs entrypoint.
+RUN useradd -r docker
+
+# Start an "application container"?
+ENTRYPOINT ["su", "docker", "-c", "/usr/local/bin/python3"]
 
