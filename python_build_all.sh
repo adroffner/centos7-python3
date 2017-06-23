@@ -8,7 +8,7 @@
 # Install dependencies needed for python
 # =============================================================================
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel
-yum -y install sqlite-devel mysql-devel readline-devel
+yum -y install sqlite-devel mysql-devel readline-devel gdbm-devel
 
 yum -y install install wget
 yum -y groupinstall "Development Tools"
