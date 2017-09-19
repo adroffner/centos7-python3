@@ -1,7 +1,6 @@
 # CentOS 7 with Python 3.5 on Docker
 # =============================================================================
-FROM zlp11313.vci.att.com:5100/com.att.dev.argos/centos:7
-MAINTAINER "Andrew Droffner" <ad718x@att.com>
+FROM dockercentral.it.att.com:5100/com.att.dev.argos/centos:7
 
 # Set the Python 3.5.x version.
 # =============================================================================
