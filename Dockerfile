@@ -22,6 +22,9 @@ WORKDIR /root/python-workspace
 RUN localedef  -c -i en_US -f UTF-8 en_US.UTF-8 || /bin/true
 ENV LC_ALL "en_US.UTF-8"
 
+#Install Tkinter
+RUN yum -y tk-devel
+
 # Download and build python 3.5.x
 COPY ./python_build_all.sh .
 RUN  ./python_build_all.sh
