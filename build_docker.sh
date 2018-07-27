@@ -12,7 +12,7 @@ TAG="with-TCL"
 
 IMAGE_TAG="${REGISTRY}/${NAMESPACE}/${IMAGE_NAME}:${TAG}"
 
-docker login -u m12292@argos.dev.att.com -p D4t4b4s3 -e m12292@att.com ${REGISTRY}
+docker login -u m12292@argos.dev.att.com -p 3W2-CDP-naF-3aN -e m12292@att.com ${REGISTRY}
 
 docker build -t $IMAGE_TAG ./ \
     --build-arg http_proxy=$http_proxy \
