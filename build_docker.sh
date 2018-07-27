@@ -8,7 +8,7 @@
 REGISTRY="dockercentral.it.att.com:5100"
 NAMESPACE="com.att.dev.argos"
 IMAGE_NAME="centos7-python3"
-TAG="with-TCL"
+TAG="3.5.2"
 
 IMAGE_TAG="${REGISTRY}/${NAMESPACE}/${IMAGE_NAME}:${TAG}"
 
