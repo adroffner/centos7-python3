@@ -5,6 +5,11 @@
 # Assume env. variable PYTHON_VERSION is defined, e.g. PYTHON_VERSION=3.5.2
 # =============================================================================
 
+# Install additional yum repositories first.
+# =============================================================================
+yum install -y epel-release
+yum -y install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+
 # Install dependencies needed for python
 # =============================================================================
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel
@@ -12,7 +17,7 @@ yum -y install mysql-devel readline-devel gdbm-devel
 # Use alternate: sqlite-devel
 
 # spatialite: Install SQL/GIS libraries before building.
-yum -y install geos-devel gdal-devel freexl-devel proj49-devel
+yum -y install geos-devel gdal-devel freexl-devel proj49-devel libxml2-devel
 
 yum -y install wget
 yum -y groupinstall "Development Tools"

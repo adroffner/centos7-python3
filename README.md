@@ -13,8 +13,11 @@ For example, there are Apache **mod_wsgi.so** and **PostgreSQL** python stored p
 Enabled SQLite3 Load Extensions
 -------------------------------
 
-The **sqlite3** library has a n option to _load extensions_, such as **spatialite**.
+The **sqlite3** library has an option to _load extensions_, such as **spatialite**.
 This interpreter has this feature available to the programmer.
+
+The **spatialite** extension has been added to support unit testing.
+This gives an in-line SQL/GIS database to projects such as GeoDjango.
 
 ```python
 import sqlite3
