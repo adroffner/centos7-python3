@@ -5,25 +5,17 @@
 # Assume env. variable PYTHON_VERSION is defined, e.g. PYTHON_VERSION=3.5.2
 # =============================================================================
 
-# Install additional yum repositories first.
-# =============================================================================
-yum install -y epel-release
-yum -y install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
-
 # Install dependencies needed for python
 # =============================================================================
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel
 yum -y install mysql-devel readline-devel gdbm-devel
 # Use alternate: sqlite-devel
 
-# spatialite: Install SQL/GIS libraries before building.
-yum -y install geos-devel gdal-devel freexl-devel proj49-devel libxml2-devel
-
 yum -y install wget
 yum -y groupinstall "Development Tools"
 
 # =============================================================================
-# Download and build all binary libraries
+# Download and build all binary libraries with dependencies before users.
 # =============================================================================
 
 # Download and build sqlite3 *.so $SQLITE_VERSION
@@ -44,25 +36,6 @@ make install
 
 rm /usr/src/sqlite-autoconf-${SQLITE_VERSION}.tar.gz
 rm -R /usr/src/sqlite-autoconf-${SQLITE_VERSION}
-
-# Download and build spatialite SQL/GIS *.so $SPATIALITE_VERSION
-# =============================================================================
-cd /usr/src
-
-SPATIALITE_VERSION="4.3.0a"
-
-wget http://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-${SPATIALITE_VERSION}.tar.gz
-tar -xzf libspatialite-${SPATIALITE_VERSION}.tar.gz
-cd libspatialite-${SPATIALITE_VERSION}
-
-# spatialite needs GEOS and PROJ.4 *.so libraries.
-export CFLAGS="-I/usr/local/include -I/usr/proj49/include/ -L/usr/local/lib -L/usr/proj49/lib"
-./configure
-make
-make install
-
-rm /usr/src/libspatialite-${SPATIALITE_VERSION}.tar.gz
-rm -R /usr/src/libspatialite-${SPATIALITE_VERSION}
 
 # Download and build python interpreter $PYTHON_VERSION
 # =============================================================================
