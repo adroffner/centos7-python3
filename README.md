@@ -25,7 +25,7 @@ import sqlite3
 # Connect to SQLite and load spatialite module.
 conn = sqlite3.connect(':memory:')
 conn.enable_load_extension(True)
-conn.execute("SELECT load_extension('mod_spatialite')")
+conn.load_extension('/usr/local/lib/mod_spatialite.so')
 
 # Check that SpatiaLite really works.
 for row in conn.execute("SELECT ST_AsText(MakePoint(11.5, 42.5, 4326))"):
