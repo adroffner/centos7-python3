@@ -13,9 +13,6 @@ yum -y install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x
 # spatialite: Install SQL/GIS libraries before building.
 yum -y install geos-devel gdal-devel freexl-devel proj49-devel libxml2-devel
 
-yum -y install wget
-yum -y groupinstall "Development Tools"
-
 # Download and build spatialite SQL/GIS *.so $SPATIALITE_VERSION
 # =============================================================================
 cd /usr/src
