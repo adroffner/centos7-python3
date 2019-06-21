@@ -11,7 +11,7 @@ GIS_SPATIALITE=""
 REGISTRY="dockercentral.it.example.com:5100"
 NAMESPACE="com.example.dev"
 IMAGE_NAME="centos7-python3"
-TAG="3.6.6"
+TAG="3.7.3"
 
 if [ -n "${GIS_SPATIALITE}" ]; then
 	echo "Adding SQL/GIS spatialite support ..."

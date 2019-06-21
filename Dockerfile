@@ -4,7 +4,7 @@ FROM dockercentral.it.example.com:5100/com.example.dev.argos/centos:7
 
 # Set the Python 3.x.x version.
 # =============================================================================
-ENV PYTHON_VERSION="3.6.6"
+ENV PYTHON_VERSION="3.7.3"
 
 # HTTP Proxy Settings
 ENV http_proxy="http://one.proxy.example.com:8080"

@@ -9,7 +9,7 @@
 REGISTRY="dockercentral.it.example.com:5100"
 NAMESPACE="com.example.dev.argos"
 IMAGE_NAME="centos7-python3"
-TAG="3.6.6"
+TAG="3.7.3"
 
 FULL_IMAGE_NAME="${REGISTRY}/${NAMESPACE}/${IMAGE_NAME}:${TAG}"
 
